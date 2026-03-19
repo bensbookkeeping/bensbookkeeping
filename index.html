@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- CHANGE: Update page title if business name changes -->
+  <title>Ben's Bookkeeping Services | Winnipeg, Manitoba</title>
+  <meta name="description" content="Personal tax and bookkeeping for small to medium businesses in Winnipeg. Over 20 years of experience. Quickbooks & Sage 50 Certified." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─────────────────────────────────────────────
+       RESET & BASE
+    ───────────────────────────────────────────── */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --blue:       #5B8FD4;
+      --blue-dark:  #3a6db5;
+      --blue-light: #e8f0fb;
+      --navy:       #1a1a2e;
+      --grey-bg:    #F8F9FA;
+      --grey-text:  #6b7280;
+      --dark:       #1a1a2e;
+      --white:      #ffffff;
+      --shadow:     0 2px 20px rgba(91, 143, 212, 0.10);
+      --shadow-md:  0 6px 36px rgba(91, 143, 212, 0.14);
+      --radius:     10px;
+      --transition: 0.22s ease;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--dark);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', serif;
+      line-height: 1.2;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img { display: block; max-width: 100%; }
+
+    /* ─────────────────────────────────────────────
+       UTILITY
+    ───────────────────────────────────────────── */
+    .container {
+      width: 100%;
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 30px;
+      border-radius: 6px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: background var(--transition), color var(--transition), border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--blue);
+      color: var(--white);
+      border-color: var(--blue);
+    }
+
+    .btn-primary:hover {
+      background: var(--blue-dark);
+      border-color: var(--blue-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 24px rgba(91, 143, 212, 0.28);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--blue);
+      border-color: var(--blue);
+    }
+
+    .btn-outline:hover {
+      background: var(--blue);
+      color: var(--white);
+      transform: translateY(-1px);
+    }
+
+    .btn-white {
+      background: var(--white);
+      color: var(--blue);
+      border-color: var(--white);
+    }
+
+    .btn-white:hover {
+      background: var(--blue-light);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+    }
+
+    /* ─────────────────────────────────────────────
+       NAV
+    ───────────────────────────────────────────── */
+    #nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(91, 143, 212, 0.10);
+      transition: box-shadow var(--transition);
+    }
+
+    #nav.scrolled {
+      box-shadow: 0 2px 24px rgba(91, 143, 212, 0.10);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--dark);
+      letter-spacing: 0.01em;
+    }
+
+    .nav-logo span {
+      color: var(--blue);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--dark);
+      padding-bottom: 3px;
+      border-bottom: 2px solid transparent;
+      transition: color var(--transition), border-color var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--blue);
+      border-bottom-color: var(--blue);
+    }
+
+    /* Hamburger */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 36px;
+      height: 36px;
+      cursor: pointer;
+      border: none;
+      background: none;
+      padding: 4px;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      height: 2px;
+      background: var(--dark);
+      border-radius: 2px;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    .nav-hamburger.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .nav-hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-hamburger.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* Mobile nav drawer */
+    .nav-mobile {
+      display: none;
+      flex-direction: column;
+      background: var(--white);
+      border-top: 1px solid rgba(91,143,212,0.10);
+      padding: 20px 24px 28px;
+      gap: 4px;
+    }
+
+    .nav-mobile.open {
+      display: flex;
+    }
+
+    .nav-mobile a {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--dark);
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(91,143,212,0.08);
+      transition: color var(--transition);
+    }
+
+    .nav-mobile a:last-child {
+      border-bottom: none;
+    }
+
+    .nav-mobile a:hover {
+      color: var(--blue);
+    }
+
+    /* ─────────────────────────────────────────────
+       HERO
+    ───────────────────────────────────────────── */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: var(--white);
+      padding-top: 68px;
+    }
+
+    /* Subtle diagonal stripe texture — matches business card aesthetic */
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(
+          -55deg,
+          transparent,
+          transparent 48px,
+          rgba(91, 143, 212, 0.028) 48px,
+          rgba(91, 143, 212, 0.028) 50px
+        );
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 760px;
+      padding: 80px 0 160px;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(2.4rem, 5.5vw, 4rem);
+      font-weight: 700;
+      color: var(--dark);
+      line-height: 1.15;
+      margin-bottom: 22px;
+    }
+
+    .hero-content h1 em {
+      color: var(--blue);
+      font-style: normal;
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.13rem);
+      color: var(--grey-text);
+      line-height: 1.7;
+      max-width: 580px;
+      margin-bottom: 40px;
+      font-weight: 400;
+    }
+
+    .hero-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 36px;
+    }
+
+    .hero-trust {
+      font-size: 0.8rem;
+      color: var(--grey-text);
+      font-weight: 500;
+      letter-spacing: 0.03em;
+    }
+
+    .hero-trust span {
+      color: var(--blue);
+      margin: 0 6px;
+      font-size: 0.7rem;
+    }
+
+    /* SVG wave divider at hero bottom */
+    .hero-wave {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      line-height: 0;
+      z-index: 2;
+    }
+
+    .hero-wave svg {
+      display: block;
+      width: 100%;
+    }
+
+    /* ─────────────────────────────────────────────
+       SERVICES
+    ───────────────────────────────────────────── */
+    #services {
+      background: var(--grey-bg);
+      padding: 100px 0 110px;
+      position: relative;
+    }
+
+    .services-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .services-header h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      color: var(--dark);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .service-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 36px 32px;
+      box-shadow: var(--shadow);
+      border-top: 3px solid var(--blue);
+      transition: box-shadow var(--transition), transform var(--transition);
+    }
+
+    .service-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-3px);
+    }
+
+    .service-icon {
+      font-size: 2rem;
+      margin-bottom: 18px;
+      display: block;
+    }
+
+    .service-card h3 {
+      font-size: 1.2rem;
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+
+    .service-card p {
+      font-size: 0.9rem;
+      color: var(--grey-text);
+      line-height: 1.7;
+    }
+
+    /* ─────────────────────────────────────────────
+       WHY US (stats bar)
+    ───────────────────────────────────────────── */
+    #why-us {
+      background: var(--blue);
+      position: relative;
+    }
+
+    /* Diagonal stripe overlay matching business card */
+    #why-us::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        -55deg,
+        transparent,
+        transparent 18px,
+        rgba(255,255,255,0.045) 18px,
+        rgba(255,255,255,0.045) 20px
+      );
+      pointer-events: none;
+    }
+
+    .why-us-inner {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+
+    .why-stat {
+      text-align: center;
+      padding: 54px 20px;
+      border-right: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .why-stat:last-child {
+      border-right: none;
+    }
+
+    .why-stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .why-stat-label {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.82);
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      line-height: 1.4;
+    }
+
+    /* ─────────────────────────────────────────────
+       ABOUT
+    ───────────────────────────────────────────── */
+    #about {
+      background: var(--white);
+      padding: 110px 0;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 72px;
+      align-items: start;
+    }
+
+    .about-text .section-label {
+      display: block;
+    }
+
+    .about-text h2 {
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      color: var(--dark);
+      margin-bottom: 24px;
+      line-height: 1.2;
+    }
+
+    .about-text p {
+      font-size: 0.97rem;
+      color: var(--grey-text);
+      line-height: 1.82;
+      margin-bottom: 18px;
+    }
+
+    .about-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Contact details box */
+    .about-contact-box {
+      background: var(--navy);
+      border-radius: var(--radius);
+      padding: 40px 36px;
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Diagonal stripe on the dark box */
+    .about-contact-box::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        -55deg,
+        transparent,
+        transparent 16px,
+        rgba(91,143,212,0.12) 16px,
+        rgba(91,143,212,0.12) 18px
+      );
+      pointer-events: none;
+    }
+
+    .about-contact-box > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .about-contact-box h4 {
+      font-size: 1.05rem;
+      color: var(--white);
+      margin-bottom: 28px;
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+
+    .contact-detail:last-child {
+      margin-bottom: 0;
+    }
+
+    .contact-detail-icon {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      background: rgba(91, 143, 212, 0.2);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+    }
+
+    .contact-detail-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .contact-detail-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .contact-detail-value {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.92);
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .contact-detail-value a {
+      color: rgba(255,255,255,0.92);
+      transition: color var(--transition);
+    }
+
+    .contact-detail-value a:hover {
+      color: var(--blue);
+    }
+
+    /* ─────────────────────────────────────────────
+       CTA BANNER
+    ───────────────────────────────────────────── */
+    #cta {
+      background: var(--blue);
+      padding: 88px 0;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    #cta::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        -55deg,
+        transparent,
+        transparent 22px,
+        rgba(255,255,255,0.04) 22px,
+        rgba(255,255,255,0.04) 24px
+      );
+      pointer-events: none;
+    }
+
+    .cta-inner {
+      position: relative;
+      z-index: 2;
+    }
+
+    #cta h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      color: var(--white);
+      margin-bottom: 14px;
+    }
+
+    #cta p {
+      font-size: 1.02rem;
+      color: rgba(255,255,255,0.82);
+      margin-bottom: 36px;
+      line-height: 1.65;
+    }
+
+    /* ─────────────────────────────────────────────
+       CONTACT
+    ───────────────────────────────────────────── */
+    #contact {
+      background: var(--white);
+      padding: 110px 0;
+    }
+
+    .contact-header {
+      margin-bottom: 60px;
+    }
+
+    .contact-header h2 {
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      color: var(--dark);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 72px;
+      align-items: start;
+    }
+
+    /* Form */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-field label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--dark);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .form-field input,
+    .form-field textarea {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.92rem;
+      color: var(--dark);
+      background: var(--white);
+      border: 1.5px solid rgba(91,143,212,0.22);
+      border-radius: 6px;
+      padding: 13px 16px;
+      outline: none;
+      transition: border-color var(--transition), box-shadow var(--transition);
+      width: 100%;
+    }
+
+    .form-field input::placeholder,
+    .form-field textarea::placeholder {
+      color: #b0b8c8;
+    }
+
+    .form-field input:focus,
+    .form-field textarea:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(91,143,212,0.10);
+    }
+
+    .form-field textarea {
+      resize: vertical;
+      min-height: 130px;
+    }
+
+    /* Contact info sidebar */
+    .contact-info {
+      padding-top: 8px;
+    }
+
+    .contact-info h3 {
+      font-size: 1.2rem;
+      color: var(--dark);
+      margin-bottom: 28px;
+    }
+
+    .contact-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 26px;
+    }
+
+    .contact-info-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .ci-icon {
+      flex-shrink: 0;
+      width: 42px;
+      height: 42px;
+      background: var(--blue-light);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+
+    .ci-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .ci-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--grey-text);
+    }
+
+    .ci-value {
+      font-size: 0.92rem;
+      color: var(--dark);
+      line-height: 1.5;
+    }
+
+    .ci-value a {
+      color: var(--blue);
+      transition: color var(--transition);
+    }
+
+    .ci-value a:hover {
+      color: var(--blue-dark);
+      text-decoration: underline;
+    }
+
+    /* ─────────────────────────────────────────────
+       FOOTER
+    ───────────────────────────────────────────── */
+    #footer {
+      background: var(--navy);
+      padding: 52px 0 36px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #footer::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        -55deg,
+        transparent,
+        transparent 20px,
+        rgba(91,143,212,0.06) 20px,
+        rgba(91,143,212,0.06) 22px
+      );
+      pointer-events: none;
+    }
+
+    .footer-inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 10px;
+    }
+
+    .footer-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 2px;
+    }
+
+    .footer-location {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.55);
+      font-weight: 500;
+    }
+
+    .footer-tagline {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.4);
+      font-style: italic;
+      margin-top: 2px;
+      margin-bottom: 18px;
+    }
+
+    .footer-divider {
+      width: 48px;
+      height: 1px;
+      background: rgba(91,143,212,0.3);
+      margin: 4px 0 10px;
+    }
+
+    .footer-copy {
+      font-size: 0.76rem;
+      color: rgba(255,255,255,0.28);
+      letter-spacing: 0.03em;
+    }
+
+    /* ─────────────────────────────────────────────
+       WAVE DIVIDERS
+    ───────────────────────────────────────────── */
+    .wave-divider {
+      display: block;
+      width: 100%;
+      line-height: 0;
+      overflow: hidden;
+    }
+
+    /* ─────────────────────────────────────────────
+       RESPONSIVE
+    ───────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 52px;
+      }
+
+      .why-us-inner {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .why-stat {
+        border-right: 1px solid rgba(255,255,255,0.15);
+        border-bottom: 1px solid rgba(255,255,255,0.15);
+      }
+
+      .why-stat:nth-child(2) {
+        border-right: none;
+      }
+
+      .why-stat:nth-child(3),
+      .why-stat:nth-child(4) {
+        border-bottom: none;
+      }
+
+      .why-stat:nth-child(4) {
+        border-right: none;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .nav-links {
+        display: none;
+      }
+
+      .nav-hamburger {
+        display: flex;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .why-us-inner {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-content {
+        padding: 60px 0 140px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .why-us-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .why-stat {
+        border-right: none;
+      }
+
+      .hero-content h1 {
+        font-size: 2.1rem;
+      }
+    }
+
+    /* Form submit feedback */
+    .form-success {
+      display: none;
+      background: #edf7ed;
+      border: 1px solid #81c784;
+      border-radius: 6px;
+      padding: 14px 18px;
+      color: #2e7d32;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    /* Smooth reveal on scroll */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════
+       NAV
+  ═══════════════════════════════════════ -->
+  <header id="nav" role="banner">
+    <div class="container">
+      <nav class="nav-inner" aria-label="Main navigation">
+        <!-- CHANGE: Update business name if needed -->
+        <a href="#hero" class="nav-logo">Ben's <span>Bookkeeping</span> Services</a>
+
+        <ul class="nav-links" role="list">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false" id="hamburgerBtn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div class="nav-mobile" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
+      <a href="#services" class="mobile-link">Services</a>
+      <a href="#about" class="mobile-link">About</a>
+      <a href="#contact" class="mobile-link">Contact</a>
+    </div>
+  </header>
+
+
+  <!-- ═══════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════ -->
+  <section id="hero" aria-label="Hero">
+    <div class="container">
+      <div class="hero-content">
+        <p class="section-label">Winnipeg's Trusted Bookkeepers</p>
+
+        <!-- CHANGE: Update headline if desired -->
+        <h1>Your Finances,<br /><em>Finally Under Control</em></h1>
+
+        <!-- CHANGE: Update subheadline as needed -->
+        <p class="hero-sub">
+          Personal tax and bookkeeping for small to medium businesses in Winnipeg.
+          Over 20 years of experience, family owned, and built on trust.
+        </p>
+
+        <div class="hero-btns">
+          <!-- CHANGE: Update href to your booking/contact link -->
+          <a href="#contact" class="btn btn-primary">Get a Free Consultation</a>
+          <a href="#services" class="btn btn-outline">See Our Services</a>
+        </div>
+
+        <p class="hero-trust">
+          Quickbooks &amp; Sage 50 Certified
+          <span>·</span>
+          Pick Up &amp; Drop Off Available
+          <span>·</span>
+          CRA Correspondence Handled
+        </p>
+      </div>
+    </div>
+
+    <!-- Diagonal wave SVG divider (business card-inspired) -->
+    <div class="hero-wave" aria-hidden="true">
+      <svg viewBox="0 0 1440 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <!-- Diagonal stripe band — echoes business card diagonal lines -->
+        <defs>
+          <linearGradient id="waveGrad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#5B8FD4" stop-opacity="0.18"/>
+            <stop offset="50%" stop-color="#5B8FD4" stop-opacity="0.08"/>
+            <stop offset="100%" stop-color="#5B8FD4" stop-opacity="0.18"/>
+          </linearGradient>
+        </defs>
+        <!-- Main fill shape -->
+        <path d="M0,90 L0,45 Q360,0 720,30 Q1080,60 1440,20 L1440,90 Z" fill="#F8F9FA"/>
+        <!-- Thin blue accent line -->
+        <path d="M0,46 Q360,1 720,31 Q1080,61 1440,21" fill="none" stroke="#5B8FD4" stroke-width="1.5" stroke-opacity="0.35"/>
+      </svg>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       SERVICES
+  ═══════════════════════════════════════ -->
+  <section id="services" aria-labelledby="services-heading">
+    <div style="background: var(--grey-bg); padding: 100px 0 110px;">
+      <div class="container">
+
+        <div class="services-header reveal">
+          <p class="section-label">What We Do</p>
+          <h2 id="services-heading">What We Handle For You</h2>
+        </div>
+
+        <div class="services-grid">
+          <!-- Card 1 -->
+          <div class="service-card reveal">
+            <span class="service-icon" aria-hidden="true">📋</span>
+            <h3>Personal Tax</h3>
+            <!-- CHANGE: Adjust service description if needed -->
+            <p>From simple returns to complex filings. T slips, efiling, and CRA correspondence handled on your behalf.</p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="service-card reveal">
+            <span class="service-icon" aria-hidden="true">📒</span>
+            <h3>Bookkeeping</h3>
+            <!-- CHANGE: Adjust service description if needed -->
+            <p>Full cycle accounting. Accounts receivable, payable, payroll, GST, PST and more — done right, every time.</p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="service-card reveal">
+            <span class="service-icon" aria-hidden="true">🧾</span>
+            <h3>Tax Preparation</h3>
+            <!-- CHANGE: Adjust pricing details if needed -->
+            <p>Personal and business returns prepared accurately. Low income efiling from $25. No surprises, no stress.</p>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="service-card reveal">
+            <span class="service-icon" aria-hidden="true">💼</span>
+            <h3>Payroll Services</h3>
+            <!-- CHANGE: Adjust service description if needed -->
+            <p>We manage your payroll so your team gets paid correctly and on time. Remittances and records included.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       WHY US — STATS BAR
+  ═══════════════════════════════════════ -->
+  <section id="why-us" aria-label="Why choose us">
+    <div class="why-us-inner container" style="max-width: 100%; padding: 0;">
+      <!-- CHANGE: Update stats if business details change -->
+      <div class="why-stat reveal">
+        <div class="why-stat-number">20+</div>
+        <div class="why-stat-label">Years<br/>Experience</div>
+      </div>
+      <div class="why-stat reveal">
+        <div class="why-stat-number">&#127968;</div>
+        <div class="why-stat-label">Family<br/>Owned</div>
+      </div>
+      <div class="why-stat reveal">
+        <div class="why-stat-number">&#128663;</div>
+        <div class="why-stat-label">Pick Up &amp;<br/>Drop Off</div>
+      </div>
+      <div class="why-stat reveal">
+        <div class="why-stat-number" style="font-size: 1.3rem; padding-top: 6px;">QB&amp;<br/>Sage 50</div>
+        <div class="why-stat-label">Certified</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       ABOUT
+  ═══════════════════════════════════════ -->
+  <section id="about" aria-labelledby="about-heading">
+    <div class="container">
+      <div class="about-grid">
+
+        <!-- Text column -->
+        <div class="about-text reveal">
+          <span class="section-label">Our Story</span>
+          <!-- CHANGE: Update heading if desired -->
+          <h2 id="about-heading">A Name You Can Trust<br/>With Your Numbers</h2>
+
+          <!-- CHANGE: Update body copy if needed -->
+          <p>
+            Ben's Bookkeeping Services is a family owned business based in Winnipeg, Manitoba.
+            With over 20 years of experience in personal tax and full cycle bookkeeping, we work
+            with individuals and small to medium businesses who want accurate, reliable financial
+            support without the big firm price tag.
+          </p>
+          <p>
+            We handle everything from payroll and accounts payable to CRA correspondence and tax
+            filing — so you can focus on running your business. Pick up and drop off available
+            for your convenience.
+          </p>
+        </div>
+
+        <!-- Contact box -->
+        <div class="about-contact-box reveal">
+          <h4>Reach Us Directly</h4>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon" aria-hidden="true">📍</div>
+            <div class="contact-detail-text">
+              <span class="contact-detail-label">Address</span>
+              <!-- CHANGE: Update address if it changes -->
+              <span class="contact-detail-value">382 Margaret Avenue<br/>Winnipeg MB R2V 1T9</span>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon" aria-hidden="true">📞</div>
+            <div class="contact-detail-text">
+              <span class="contact-detail-label">Phone</span>
+              <!-- CHANGE: Update phone number if it changes -->
+              <span class="contact-detail-value">
+                <a href="tel:2044152695">204-415-2695</a>
+              </span>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon" aria-hidden="true">✉️</div>
+            <div class="contact-detail-text">
+              <span class="contact-detail-label">Email</span>
+              <!-- CHANGE: Update email address if it changes -->
+              <span class="contact-detail-value">
+                <a href="mailto:bensbookkeeping@shaw.ca">bensbookkeeping@shaw.ca</a>
+              </span>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon" aria-hidden="true">👤</div>
+            <div class="contact-detail-text">
+              <span class="contact-detail-label">Owner</span>
+              <!-- CHANGE: Update owner name if it changes -->
+              <span class="contact-detail-value">Wendy Anderson</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       CTA BANNER
+  ═══════════════════════════════════════ -->
+  <section id="cta" aria-label="Call to action">
+    <div class="cta-inner container" style="text-align: center;">
+      <!-- CHANGE: Update CTA headline seasonally as needed -->
+      <h2 class="reveal">Tax Season Is Here.<br/>Let's Get You Sorted.</h2>
+      <p class="reveal">Don't leave it to the last minute. Book a free consultation today.</p>
+      <!-- CHANGE: Update href to your booking link or keep as contact anchor -->
+      <a href="#contact" class="btn btn-white reveal">Book a Free Consultation</a>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       CONTACT
+  ═══════════════════════════════════════ -->
+  <section id="contact" aria-labelledby="contact-heading">
+    <div class="container">
+
+      <div class="contact-header reveal">
+        <p class="section-label">Let's Talk</p>
+        <h2 id="contact-heading">Get In Touch</h2>
+      </div>
+
+      <div class="contact-grid">
+
+        <!-- Form -->
+        <form class="contact-form reveal" id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="fname">First Name</label>
+              <!-- CHANGE: Form connects to your email handler/backend -->
+              <input type="text" id="fname" name="first_name" placeholder="Wendy" required />
+            </div>
+            <div class="form-field">
+              <label for="lname">Last Name</label>
+              <input type="text" id="lname" name="last_name" placeholder="Anderson" required />
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required />
+          </div>
+
+          <div class="form-field">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="204-000-0000" />
+          </div>
+
+          <div class="form-field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell us a bit about what you need help with…" required></textarea>
+          </div>
+
+          <!-- CHANGE: Wire up form submission to Formspree, EmailJS, or your own backend -->
+          <button type="submit" class="btn btn-primary" style="align-self: flex-start;">Send Message</button>
+
+          <div class="form-success" id="formSuccess" role="alert">
+            Thank you! We'll be in touch shortly.
+          </div>
+        </form>
+
+        <!-- Info sidebar -->
+        <div class="contact-info reveal">
+          <h3>Contact Details</h3>
+
+          <div class="contact-info-item">
+            <div class="ci-icon" aria-hidden="true">📍</div>
+            <div class="ci-text">
+              <span class="ci-label">Address</span>
+              <!-- CHANGE: Update if address changes -->
+              <span class="ci-value">382 Margaret Avenue<br/>Winnipeg MB R2V 1T9</span>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="ci-icon" aria-hidden="true">📞</div>
+            <div class="ci-text">
+              <span class="ci-label">Phone</span>
+              <!-- CHANGE: Update if phone number changes -->
+              <span class="ci-value"><a href="tel:2044152695">204-415-2695</a></span>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="ci-icon" aria-hidden="true">✉️</div>
+            <div class="ci-text">
+              <span class="ci-label">Email</span>
+              <!-- CHANGE: Update if email changes -->
+              <span class="ci-value"><a href="mailto:bensbookkeeping@shaw.ca">bensbookkeeping@shaw.ca</a></span>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="ci-icon" aria-hidden="true">👤</div>
+            <div class="ci-text">
+              <span class="ci-label">Owner</span>
+              <!-- CHANGE: Update if owner name changes -->
+              <span class="ci-value">Wendy Anderson</span>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="ci-icon" aria-hidden="true">🚗</div>
+            <div class="ci-text">
+              <span class="ci-label">Service Area</span>
+              <span class="ci-value">Winnipeg, Manitoba<br/>Pick up &amp; drop off available</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════ -->
+  <footer id="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <!-- CHANGE: Update business name if it changes -->
+        <div class="footer-name">Ben's Bookkeeping Services</div>
+        <div class="footer-location">Winnipeg, Manitoba</div>
+        <div class="footer-divider" aria-hidden="true"></div>
+        <div class="footer-tagline">Family owned. Trusted for over 20 years.</div>
+        <!-- CHANGE: Update copyright year annually -->
+        <div class="footer-copy">&copy; 2026 Ben's Bookkeeping Services. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ═══════════════════════════════════════
+       JAVASCRIPT
+  ═══════════════════════════════════════ -->
+  <script>
+    // ── Nav scroll shadow ──────────────────────
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 12);
+    }, { passive: true });
+
+    // ── Hamburger toggle ───────────────────────
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileMenu   = document.getElementById('mobileMenu');
+
+    hamburgerBtn.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburgerBtn.classList.toggle('open', isOpen);
+      hamburgerBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    // Close mobile menu when a link is clicked
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        hamburgerBtn.classList.remove('open');
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // ── Scroll reveal ──────────────────────────
+    const revealEls = document.querySelectorAll('.reveal');
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    revealEls.forEach(el => revealObserver.observe(el));
+
+    // ── Staggered card reveals ─────────────────
+    document.querySelectorAll('.services-grid .service-card').forEach((card, i) => {
+      card.style.transitionDelay = `${i * 0.08}s`;
+    });
+
+    document.querySelectorAll('.why-stat').forEach((stat, i) => {
+      stat.style.transitionDelay = `${i * 0.07}s`;
+    });
+
+    // ── Contact form (demo only) ───────────────
+    // CHANGE: Replace this handler with your real form submission logic
+    // e.g., Formspree: action="https://formspree.io/f/YOUR_ID" method="POST"
+    // or EmailJS, or a serverless function
+    const contactForm   = document.getElementById('contactForm');
+    const formSuccess   = document.getElementById('formSuccess');
+
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const btn = contactForm.querySelector('button[type="submit"]');
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+
+      // Simulate async send — remove this timeout in production
+      setTimeout(() => {
+        contactForm.reset();
+        formSuccess.style.display = 'block';
+        btn.textContent = 'Send Message';
+        btn.disabled = false;
+      }, 1200);
+    });
+  </script>
+
+</body>
+</html>
