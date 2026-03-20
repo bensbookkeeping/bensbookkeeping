@@ -138,7 +138,7 @@
        NAV
     ───────────────────────────────────────────── */
     #nav {
-      position: fixed;
+      position: sticky;
       top: 0;
       left: 0;
       right: 0;
@@ -264,11 +264,12 @@
     ───────────────────────────────────────────── */
     #hero {
       position: relative;
-      min-height: 100vh;
+      min-height: calc(100vh - 68px);
       display: flex;
       align-items: center;
       background: var(--white);
-      padding-top: 68px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='4' height='4' fill='%23ffffff'/%3E%3Ccircle cx='1' cy='1' r='0.5' fill='%23f0f0f0' opacity='0.4'/%3E%3C/svg%3E");
+      padding-top: 0;
     }
 
     /* Subtle diagonal stripe texture — matches business card aesthetic */
@@ -482,6 +483,7 @@
     ───────────────────────────────────────────── */
     #about {
       background: var(--white);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='4' height='4' fill='%23ffffff'/%3E%3Ccircle cx='1' cy='1' r='0.5' fill='%23f0f0f0' opacity='0.4'/%3E%3C/svg%3E");
       padding: 110px 0;
     }
 
@@ -658,6 +660,7 @@
     ───────────────────────────────────────────── */
     #contact {
       background: var(--white);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='4' height='4' fill='%23ffffff'/%3E%3Ccircle cx='1' cy='1' r='0.5' fill='%23f0f0f0' opacity='0.4'/%3E%3C/svg%3E");
       padding: 110px 0;
     }
 
@@ -990,6 +993,193 @@
       }
     }
 
+    /* ─────────────────────────────────────────────
+       TAX DEADLINE BANNER
+    ───────────────────────────────────────────── */
+    #tax-banner {
+      background: #5B8FD4;
+      color: #ffffff;
+      text-align: center;
+      font-size: 0.82rem;
+      font-weight: 500;
+      padding: 8px 24px;
+      min-height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 1100;
+      line-height: 1.5;
+    }
+
+    #tax-banner a {
+      color: #ffffff;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      transition: opacity var(--transition);
+    }
+
+    #tax-banner a:hover {
+      opacity: 0.82;
+    }
+
+    /* ─────────────────────────────────────────────
+       FAQ SECTION
+    ───────────────────────────────────────────── */
+    #faq {
+      background: var(--white);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='4' height='4' fill='%23ffffff'/%3E%3Ccircle cx='1' cy='1' r='0.5' fill='%23f0f0f0' opacity='0.4'/%3E%3C/svg%3E");
+      padding: 100px 0;
+    }
+
+    .faq-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .faq-header h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      color: var(--dark);
+    }
+
+    .faq-list {
+      max-width: 780px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid rgba(91, 143, 212, 0.14);
+    }
+
+    .faq-item:first-child {
+      border-top: 1px solid rgba(91, 143, 212, 0.14);
+    }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      text-align: left;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--dark);
+      cursor: pointer;
+      padding: 22px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      transition: color var(--transition);
+    }
+
+    .faq-question:hover {
+      color: var(--blue);
+    }
+
+    .faq-chevron {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      stroke: var(--blue);
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item.open .faq-chevron {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+      padding: 0 0 0;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+      padding: 0 0 22px;
+    }
+
+    .faq-answer p {
+      font-size: 0.95rem;
+      color: var(--grey-text);
+      line-height: 1.78;
+      margin: 0;
+    }
+
+    /* ─────────────────────────────────────────────
+       FLOATING CALL BUTTON
+    ───────────────────────────────────────────── */
+    #float-call {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 1200;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--blue);
+      box-shadow: 0 4px 18px rgba(91, 143, 212, 0.38);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background var(--transition), transform var(--transition), box-shadow var(--transition), opacity var(--transition);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    #float-call.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    #float-call:hover {
+      background: var(--blue-dark);
+      transform: scale(1.09);
+      box-shadow: 0 6px 24px rgba(91, 143, 212, 0.48);
+    }
+
+    #float-call svg {
+      width: 24px;
+      height: 24px;
+      stroke: #ffffff;
+    }
+
+    .float-call-tooltip {
+      position: absolute;
+      right: 66px;
+      background: var(--navy);
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 5px 10px;
+      border-radius: 5px;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateX(6px);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .float-call-tooltip::after {
+      content: '';
+      position: absolute;
+      left: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      border: 5px solid transparent;
+      border-left-color: var(--navy);
+    }
+
+    #float-call:hover .float-call-tooltip {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
     /* Form submit feedback */
     .form-success {
       display: none;
@@ -1019,6 +1209,13 @@
 <body>
 
   <!-- ═══════════════════════════════════════
+       TAX DEADLINE BANNER
+  ═══════════════════════════════════════ -->
+  <div id="tax-banner" role="complementary" aria-label="Tax deadline notice">
+    📅 CRA Tax Deadline: April 30, 2026 &mdash; Don't leave it to the last minute. <a href="#contact">&nbsp;Book your free consultation &rarr;</a>
+  </div>
+
+  <!-- ═══════════════════════════════════════
        NAV
   ═══════════════════════════════════════ -->
   <header id="nav" role="banner">
@@ -1030,6 +1227,7 @@
         <ul class="nav-links" role="list">
           <li><a href="#services">Services</a></li>
           <li><a href="#about">About</a></li>
+          <li><a href="#faq">FAQ</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
 
@@ -1045,6 +1243,7 @@
     <div class="nav-mobile" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
       <a href="#services" class="mobile-link">Services</a>
       <a href="#about" class="mobile-link">About</a>
+      <a href="#faq" class="mobile-link">FAQ</a>
       <a href="#contact" class="mobile-link">Contact</a>
     </div>
   </header>
@@ -1169,7 +1368,7 @@
     <div class="why-us-inner container" style="max-width: 100%; padding: 0;">
       <!-- CHANGE: Update stats if business details change -->
       <div class="why-stat reveal">
-        <div class="why-stat-number">20+</div>
+        <div class="why-stat-number" id="counterYears" data-target="20" data-suffix="+">0+</div>
         <div class="why-stat-label">Years<br/>Experience</div>
       </div>
       <div class="why-stat reveal">
@@ -1296,6 +1495,84 @@
 
 
   <!-- ═══════════════════════════════════════
+       FAQ
+  ═══════════════════════════════════════ -->
+  <section id="faq" aria-labelledby="faq-heading">
+    <div class="container">
+
+      <div class="faq-header reveal">
+        <p class="section-label">Got Questions</p>
+        <h2 id="faq-heading">Frequently Asked Questions</h2>
+      </div>
+
+      <div class="faq-list" role="list">
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false">
+            How much does bookkeeping cost?
+            <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Every business is different. Pricing depends on the size of your business, transaction volume, and the services you need. We offer competitive rates without the big firm price tag. Contact us for a free consultation and we'll give you a clear quote.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false">
+            Do I need to come in to your office?
+            <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Not at all. We offer pick up and drop off for your documents, making the whole process as convenient as possible. We work around your schedule.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false">
+            What is the CRA personal tax deadline?
+            <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>The deadline for filing your personal income tax return is April 30, 2026. If you or your spouse are self-employed, the deadline is June 15, 2026 &mdash; however any taxes owed are still due by April 30.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false">
+            What software do you use?
+            <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>We work with QuickBooks and Sage 50 &mdash; two of the most trusted accounting platforms in Canada. If your business already uses one of these, we can work directly within your existing setup.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false">
+            Can you help with CRA correspondence?
+            <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Yes. Dealing with the CRA can be stressful. We handle correspondence on your behalf so you don't have to worry about navigating it alone.</p>
+          </div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false">
+            How do I get started?
+            <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Simply fill out the contact form below or give us a call at 204-415-2695. We'll have a free consultation to understand your needs and take it from there. No obligation, no pressure.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
        CONTACT
   ═══════════════════════════════════════ -->
   <section id="contact" aria-labelledby="contact-heading">
@@ -1404,6 +1681,16 @@
               <span class="ci-value">Winnipeg, Manitoba<br/>Pick up &amp; drop off available</span>
             </div>
           </div>
+
+          <div class="contact-info-item">
+            <div class="ci-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div class="ci-text">
+              <span class="ci-label">Hours</span>
+              <span class="ci-value">Mon &ndash; Fri: 9:00am &ndash; 5:00pm<br/>Sat &ndash; Sun: Closed</span>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -1435,6 +1722,7 @@
         <!-- CHANGE: Update business name if it changes -->
         <div class="footer-name">Ben's Bookkeeping Services</div>
         <div class="footer-location">Winnipeg, Manitoba</div>
+        <div class="footer-location" style="font-size:0.78rem; color: rgba(255,255,255,0.42); margin-top: 3px;">Mon &ndash; Fri: 9:00am &ndash; 5:00pm</div>
         <div class="footer-divider" aria-hidden="true"></div>
         <div class="footer-tagline">Family owned. Trusted for over 20 years.</div>
         <!-- CHANGE: Update copyright year annually -->
@@ -1443,6 +1731,14 @@
     </div>
   </footer>
 
+
+  <!-- ═══════════════════════════════════════
+       FLOATING CALL BUTTON
+  ═══════════════════════════════════════ -->
+  <a id="float-call" href="tel:2044152695" aria-label="Call us at 204-415-2695">
+    <span class="float-call-tooltip">Call Us</span>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.77a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.02z"/></svg>
+  </a>
 
   <!-- ═══════════════════════════════════════
        JAVASCRIPT
@@ -1521,6 +1817,84 @@
         btn.disabled = false;
       }, 1200);
     });
+
+    // ── FAQ accordion ──────────────────────────
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+
+        // Close all items
+        document.querySelectorAll('.faq-item').forEach(el => {
+          el.classList.remove('open');
+          el.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        });
+
+        // Toggle clicked item
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    // ── Animated number counter ────────────────
+    const counterEl = document.getElementById('counterYears');
+    let counterDone = false;
+
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !counterDone) {
+          counterDone = true;
+          counterObserver.unobserve(entry.target);
+
+          const target = parseInt(entry.target.dataset.target, 10);
+          const suffix = entry.target.dataset.suffix || '';
+          const duration = 1500; // ms
+          const startTime = performance.now();
+
+          function easeOutCubic(t) {
+            return 1 - Math.pow(1 - t, 3);
+          }
+
+          function tick(now) {
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const value = Math.floor(easeOutCubic(progress) * target);
+            entry.target.textContent = value + suffix;
+            if (progress < 1) {
+              requestAnimationFrame(tick);
+            } else {
+              entry.target.textContent = target + suffix;
+            }
+          }
+
+          requestAnimationFrame(tick);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    if (counterEl) {
+      counterObserver.observe(counterEl);
+    }
+
+    // ── Floating call button ────────────────────
+    const floatCall = document.getElementById('float-call');
+    const heroSection = document.getElementById('hero');
+
+    const floatObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+          floatCall.classList.add('visible');
+        } else {
+          floatCall.classList.remove('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    if (heroSection) {
+      floatObserver.observe(heroSection);
+    }
   </script>
 
 </body>
