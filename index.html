@@ -101,8 +101,9 @@
       color: var(--dark);
       background: var(--white);
       -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
     }
+
+    html { overflow-x: hidden; }
 
     h1, h2, h3, h4 {
       font-family: 'Playfair Display', serif;
@@ -1045,6 +1046,26 @@
       .hero-content h1 {
         font-size: 2.1rem;
       }
+
+      #float-call {
+        right: 16px;
+        bottom: 16px;
+      }
+
+      #back-to-top {
+        right: 16px;
+        bottom: 84px;
+      }
+    }
+
+    .banner-hide-mobile  { }
+    .banner-show-mobile  { display: none; }
+
+    @media (max-width: 600px) {
+      .banner-hide-mobile  { display: none; }
+      .banner-show-mobile  { display: inline; }
+      .banner-sep          { display: none; }
+      #tax-banner          { font-size: 0.78rem; gap: 4px; }
     }
 
     /* ─────────────────────────────────────────────
@@ -1809,7 +1830,7 @@
        TAX DEADLINE BANNER
   ═══════════════════════════════════════ -->
   <div id="tax-banner" role="complementary" aria-label="Tax deadline notice">
-    <span>CRA Tax Deadline: April 30, 2026</span>
+    <span><span class="banner-hide-mobile">CRA Tax Deadline: </span>Apr 30, 2026</span>
     <span class="banner-sep" aria-hidden="true">|</span>
     <span class="countdown-wrap" aria-live="polite" aria-label="Time remaining">
       <span class="countdown-unit"><span id="cd-days">--</span><small>d</small></span>
@@ -1818,7 +1839,7 @@
       <span class="countdown-unit"><span id="cd-secs">--</span><small>s</small></span>
     </span>
     <span class="banner-sep" aria-hidden="true">—</span>
-    <a href="#contact">Book your free consultation &rarr;</a>
+    <a href="#contact"><span class="banner-hide-mobile">Book your free consultation</span><span class="banner-show-mobile">Book now</span> &rarr;</a>
   </div>
 
   <!-- ═══════════════════════════════════════
