@@ -355,8 +355,8 @@
     .hero-content {
       position: relative;
       z-index: 2;
-      max-width: 760px;
-      padding: 80px 0 160px;
+      flex: 1;
+      min-width: 0;
     }
 
     .hero-content h1 {
@@ -399,6 +399,83 @@
       color: var(--blue);
       margin: 0 6px;
       font-size: 0.7rem;
+    }
+
+    /* Hero two-column layout */
+    .hero-layout {
+      display: flex;
+      align-items: center;
+      gap: 64px;
+      width: 100%;
+      padding: 80px 0 150px;
+    }
+
+    /* Hero service cards */
+    .hero-cards {
+      flex-shrink: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      width: 360px;
+    }
+
+    .hero-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 22px 18px;
+      box-shadow: 0 2px 18px rgba(91,143,212,0.11);
+      border-top: 3px solid var(--blue);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .hero-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 32px rgba(91,143,212,0.20);
+    }
+
+    .hero-card-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--blue-light);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+
+    .hero-card-icon svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--blue);
+    }
+
+    .hero-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 5px;
+    }
+
+    .hero-card-sub {
+      font-size: 0.76rem;
+      color: var(--grey-text);
+      line-height: 1.5;
+    }
+
+    @media (max-width: 1020px) {
+      .hero-layout { gap: 40px; }
+      .hero-cards { width: 300px; }
+    }
+
+    @media (max-width: 820px) {
+      .hero-layout { flex-direction: column; gap: 36px; padding-bottom: 130px; }
+      .hero-cards { width: 100%; max-width: 480px; }
+    }
+
+    @media (max-width: 500px) {
+      .hero-cards { display: none; }
     }
 
     /* SVG wave divider at hero bottom */
@@ -510,7 +587,7 @@
       position: relative;
       z-index: 2;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 0;
     }
 
@@ -1007,8 +1084,12 @@
         border-right: none;
       }
 
-      .why-stat:nth-child(3) {
+      .why-stat:nth-child(3),
+      .why-stat:nth-child(4) {
         border-bottom: none;
+      }
+
+      .why-stat:nth-child(4) {
         border-right: none;
       }
     }
@@ -1027,7 +1108,7 @@
       }
 
       .why-us-inner {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
       }
 
       .form-row {
@@ -1887,30 +1968,63 @@
   <section id="hero" aria-label="Hero">
     <div class="hero-orb" aria-hidden="true"></div>
     <div class="container">
-      <div class="hero-content">
-        <p class="section-label">Winnipeg's Trusted Bookkeepers</p>
+      <div class="hero-layout">
+        <div class="hero-content">
+          <p class="section-label">Winnipeg's Trusted Bookkeepers</p>
 
-        <!-- CHANGE: Update headline if desired -->
-        <h1>Your Finances,<br /><em>Finally Under Control</em></h1>
-        <div class="hero-headline-line" aria-hidden="true"></div>
+          <!-- CHANGE: Update headline if desired -->
+          <h1>Your Finances,<br /><em>Finally Under Control</em></h1>
+          <div class="hero-headline-line" aria-hidden="true"></div>
 
-        <!-- CHANGE: Update subheadline as needed -->
-        <p class="hero-sub">
-          Personal tax and bookkeeping for small to medium businesses in Winnipeg.
-          Over 20 years of experience, family owned, and built on trust.
-        </p>
+          <!-- CHANGE: Update subheadline as needed -->
+          <p class="hero-sub">
+            Personal tax and bookkeeping for small to medium businesses in Winnipeg.
+            Over 20 years of experience, family owned, and built on trust.
+          </p>
 
-        <div class="hero-btns">
-          <!-- CHANGE: Update href to your booking/contact link -->
-          <a href="#contact" class="btn btn-primary">Get a Free Consultation</a>
-          <a href="#services" class="btn btn-outline">See Our Services</a>
+          <div class="hero-btns">
+            <!-- CHANGE: Update href to your booking/contact link -->
+            <a href="#contact" class="btn btn-primary">Get a Free Consultation</a>
+            <a href="#services" class="btn btn-outline">See Our Services</a>
+          </div>
+
+          <p class="hero-trust">
+            Quickbooks &amp; Sage 50 Certified
+            <span>·</span>
+            CRA Correspondence
+          </p>
         </div>
 
-        <p class="hero-trust">
-          Quickbooks &amp; Sage 50 Certified
-          <span>·</span>
-          CRA Correspondence Handled
-        </p>
+        <div class="hero-cards" aria-hidden="true">
+          <div class="hero-card">
+            <div class="hero-card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </div>
+            <div class="hero-card-title">Personal Tax</div>
+            <div class="hero-card-sub">T1 returns for individuals & families</div>
+          </div>
+          <div class="hero-card">
+            <div class="hero-card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <div class="hero-card-title">Bookkeeping</div>
+            <div class="hero-card-sub">Monthly records & financial tracking</div>
+          </div>
+          <div class="hero-card">
+            <div class="hero-card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <div class="hero-card-title">Tax Preparation</div>
+            <div class="hero-card-sub">Business & self-employed returns</div>
+          </div>
+          <div class="hero-card">
+            <div class="hero-card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+            </div>
+            <div class="hero-card-title">Payroll Services</div>
+            <div class="hero-card-sub">Accurate payroll for your team</div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -2008,6 +2122,12 @@
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
         </div>
         <div class="why-stat-label">Her Son &amp;<br/>Her Family</div>
+      </div>
+      <div class="why-stat reveal">
+        <div class="why-stat-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <div class="why-stat-label">Drop Off<br/>Available</div>
       </div>
       <div class="why-stat reveal">
         <div class="why-stat-icon" aria-hidden="true">
