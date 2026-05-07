@@ -1727,38 +1727,6 @@
        PREMIUM FEATURES 1–13
     ───────────────────────────────────────────── */
 
-    /* 1. Custom cursor */
-    .cursor-dot {
-      width: 9px;
-      height: 9px;
-      background: var(--blue);
-      border-radius: 50%;
-      position: fixed;
-      top: 0; left: 0;
-      pointer-events: none;
-      z-index: 9999;
-      transform: translate(-50%, -50%);
-      will-change: transform;
-      transition: width 0.15s ease, height 0.15s ease, background 0.15s ease;
-    }
-
-    .cursor-ring {
-      width: 34px;
-      height: 34px;
-      border: 1.5px solid rgba(91, 143, 212, 0.4);
-      border-radius: 50%;
-      position: fixed;
-      top: 0; left: 0;
-      pointer-events: none;
-      z-index: 9998;
-      transform: translate(-50%, -50%);
-      will-change: transform;
-      transition: border-color 0.2s ease;
-    }
-
-    @media (hover: none) {
-      .cursor-dot, .cursor-ring { display: none; }
-    }
 
     /* 2. Page load fade-in */
     body { animation: bodyFadeIn 0.45s ease both; }
@@ -2700,8 +2668,6 @@
   </a>
 
   <!-- Custom cursor -->
-  <div class="cursor-dot" aria-hidden="true"></div>
-  <div class="cursor-ring" aria-hidden="true"></div>
 
   <!-- Back to top -->
   <button id="back-to-top" aria-label="Back to top">
@@ -2932,36 +2898,6 @@
       });
     })();
 
-    // ── 1. Custom cursor ────────────────────────
-    const cursorDot  = document.querySelector('.cursor-dot');
-    const cursorRing = document.querySelector('.cursor-ring');
-
-    if (cursorDot && cursorRing) {
-      let ringX = 0, ringY = 0;
-      let dotX  = 0, dotY  = 0;
-
-      window.addEventListener('mousemove', (e) => {
-        dotX = e.clientX;
-        dotY = e.clientY;
-        cursorDot.style.transform = `translate(calc(-50% + ${dotX}px - 0px), calc(-50% + ${dotY}px - 0px))`;
-        cursorDot.style.left = '0';
-        cursorDot.style.top  = '0';
-        cursorDot.style.transform = `translate(${dotX - 5}px, ${dotY - 5}px)`;
-      });
-
-      (function animateRing() {
-        ringX += (dotX - ringX) * 0.14;
-        ringY += (dotY - ringY) * 0.14;
-        cursorRing.style.transform = `translate(${ringX - 17}px, ${ringY - 17}px)`;
-        requestAnimationFrame(animateRing);
-      })();
-
-      // Grow ring over clickable elements
-      document.querySelectorAll('a, button').forEach(el => {
-        el.addEventListener('mouseenter', () => cursorRing.style.transform += ' scale(1.4)');
-        el.addEventListener('mouseleave', () => {});
-      });
-    }
 
     // ── 6. Nav active state ─────────────────────
     const navLinks = document.querySelectorAll('.nav-links a');
