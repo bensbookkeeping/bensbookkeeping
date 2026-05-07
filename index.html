@@ -510,7 +510,7 @@
       position: relative;
       z-index: 2;
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 0;
     }
 
@@ -1007,12 +1007,8 @@
         border-right: none;
       }
 
-      .why-stat:nth-child(3),
-      .why-stat:nth-child(4) {
+      .why-stat:nth-child(3) {
         border-bottom: none;
-      }
-
-      .why-stat:nth-child(4) {
         border-right: none;
       }
     }
@@ -1031,7 +1027,7 @@
       }
 
       .why-us-inner {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(3, 1fr);
       }
 
       .form-row {
@@ -1086,8 +1082,8 @@
       text-align: center;
       font-size: 0.82rem;
       font-weight: 500;
-      padding: 8px 24px;
-      min-height: 38px;
+      padding: 14px 24px;
+      min-height: 54px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1530,7 +1526,7 @@
     .checklist-tab {
       padding: 10px 24px;
       border-radius: 50px;
-      border: 1.5px solid rgba(91,143,212,0.25);
+      border: 2px solid rgba(91,143,212,0.45);
       background: var(--white);
       font-family: 'Inter', sans-serif;
       font-size: 0.87rem;
@@ -1538,7 +1534,7 @@
       color: var(--dark);
       cursor: pointer;
       transition: all var(--transition);
-      box-shadow: var(--shadow);
+      box-shadow: 0 2px 10px rgba(91,143,212,0.12);
     }
 
     .checklist-tab:hover {
@@ -1913,8 +1909,6 @@
         <p class="hero-trust">
           Quickbooks &amp; Sage 50 Certified
           <span>·</span>
-          Pick Up &amp; Drop Off Available
-          <span>·</span>
           CRA Correspondence Handled
         </p>
       </div>
@@ -2013,13 +2007,7 @@
         <div class="why-stat-icon" aria-hidden="true">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
         </div>
-        <div class="why-stat-label">Family<br/>Owned</div>
-      </div>
-      <div class="why-stat reveal">
-        <div class="why-stat-icon" aria-hidden="true">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-        </div>
-        <div class="why-stat-label">Pick Up &amp;<br/>Drop Off</div>
+        <div class="why-stat-label">Her Son &amp;<br/>Her Family</div>
       </div>
       <div class="why-stat reveal">
         <div class="why-stat-icon" aria-hidden="true">
