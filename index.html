@@ -330,25 +330,20 @@
       min-height: calc(100vh - 68px);
       display: flex;
       align-items: center;
-      background: var(--white);
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='4' height='4' fill='%23ffffff'/%3E%3Ccircle cx='1' cy='1' r='0.5' fill='%23f0f0f0' opacity='0.4'/%3E%3C/svg%3E");
+      background: #f5f7fa;
+      background-image: url("https://images.pexels.com/photos/209224/pexels-photo-209224.jpeg?auto=compress&cs=tinysrgb&w=1600");
+      background-size: cover;
+      background-position: center;
       padding-top: 0;
       overflow: hidden;
     }
 
-    /* Subtle diagonal stripe texture — matches business card aesthetic */
+    /* Light white overlay so text stays readable */
     #hero::before {
       content: '';
       position: absolute;
       inset: 0;
-      background:
-        repeating-linear-gradient(
-          -55deg,
-          transparent,
-          transparent 48px,
-          rgba(91, 143, 212, 0.028) 48px,
-          rgba(91, 143, 212, 0.028) 50px
-        );
+      background: rgba(255, 255, 255, 0.82);
       pointer-events: none;
     }
 
