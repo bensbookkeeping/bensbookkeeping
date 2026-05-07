@@ -1906,6 +1906,83 @@
       height: 18px;
       stroke: rgba(255, 255, 255, 0.85);
     }
+
+    /* ─────────────────────────────────────────────
+       SECTION SPLIT (half-image half-text)
+    ───────────────────────────────────────────── */
+    .section-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+    }
+
+    .split-img {
+      position: relative;
+      min-height: 480px;
+      overflow: hidden;
+    }
+
+    .split-img img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .split-body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 72px;
+      background: var(--white);
+    }
+
+    .split-body.bg-grey {
+      background: var(--grey-bg);
+    }
+
+    .split-body h2 {
+      font-size: clamp(1.7rem, 2.8vw, 2.3rem);
+      color: var(--dark);
+      margin-bottom: 18px;
+      line-height: 1.25;
+    }
+
+    .split-body p {
+      font-size: 0.97rem;
+      color: var(--grey-text);
+      line-height: 1.78;
+      margin-bottom: 14px;
+    }
+
+    .split-body p:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .split-body .btn {
+      margin-top: 28px;
+      align-self: flex-start;
+    }
+
+    @media (max-width: 860px) {
+      .section-split {
+        grid-template-columns: 1fr;
+      }
+
+      .split-img {
+        min-height: 300px;
+      }
+
+      .split-img.order-first {
+        order: -1;
+      }
+
+      .split-body {
+        padding: 56px 28px;
+      }
+    }
   </style>
 </head>
 
@@ -2110,6 +2187,23 @@
 
 
   <!-- ═══════════════════════════════════════
+       SPLIT — Our Approach
+  ═══════════════════════════════════════ -->
+  <div class="section-split reveal">
+    <div class="split-body bg-grey">
+      <p class="section-label">How We Work</p>
+      <h2>Careful With Every<br/>Number, Every Time</h2>
+      <p>Whether it's a box of receipts or a full year of corporate records, every file gets the same thorough attention. We review, organise, and prepare everything accurately so nothing gets missed at filing time.</p>
+      <p>Drop off your documents or email them over — we'll take it from there and keep you updated every step of the way.</p>
+      <a href="#contact" class="btn btn-primary">Talk to Us</a>
+    </div>
+    <div class="split-img">
+      <img src="33c828b7f313044057b08e2d026d96d0.jpg" alt="Bookkeeper reviewing financial documents at desk with laptop" loading="lazy" />
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════
        WHY US — STATS BAR
   ═══════════════════════════════════════ -->
   <section id="why-us" aria-label="Why choose us">
@@ -2139,6 +2233,23 @@
       </div>
     </div>
   </section>
+
+
+  <!-- ═══════════════════════════════════════
+       SPLIT — Personal Touch
+  ═══════════════════════════════════════ -->
+  <div class="section-split reveal">
+    <div class="split-img">
+      <img src="13ca1b0a833b4ae14538c6b3aff0dc67.jpg" alt="Warm bookkeeping workspace with calculator, coffee, and tax papers" loading="lazy" />
+    </div>
+    <div class="split-body">
+      <p class="section-label">Family Business</p>
+      <h2>Built on Decades<br/>of Personal Service</h2>
+      <p>Wendy Anderson started Ben's Bookkeeping to support her family — and that same personal commitment carries into every client relationship. You'll always speak to someone who knows your file.</p>
+      <p>Home-based by design, which means lower overhead and better value passed directly on to you.</p>
+      <a href="#about" class="btn btn-outline">Read Our Story</a>
+    </div>
+  </div>
 
 
   <!-- ═══════════════════════════════════════
@@ -2285,6 +2396,23 @@
 
 
   <!-- ═══════════════════════════════════════
+       SPLIT — Clean Records
+  ═══════════════════════════════════════ -->
+  <div class="section-split reveal">
+    <div class="split-body">
+      <p class="section-label">Why It Matters</p>
+      <h2>Organised Records Mean<br/>Fewer Surprises</h2>
+      <p>Disorganised books lead to missed deductions, late penalties, and stressful CRA audits. We keep everything clean, current, and audit-ready — so you're always on solid ground.</p>
+      <p>From Quickbooks to Sage 50, we work in the tools your business already uses.</p>
+      <a href="#checklist" class="btn btn-primary">See What to Bring</a>
+    </div>
+    <div class="split-img">
+      <img src="52327e771ea02491394673d1b3045475.jpg" alt="Clean professional desk with calculator resting on financial charts" loading="lazy" />
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════
        CTA BANNER
   ═══════════════════════════════════════ -->
   <section id="cta" aria-label="Call to action">
@@ -2296,6 +2424,23 @@
       <a href="#contact" class="btn btn-white reveal">Book a Free Consultation</a>
     </div>
   </section>
+
+
+  <!-- ═══════════════════════════════════════
+       SPLIT — Tax Filing
+  ═══════════════════════════════════════ -->
+  <div class="section-split reveal">
+    <div class="split-img">
+      <img src="d95fa2e54430cc814c46a78fbbccf07e.jpg" alt="TAX document with calculator and financial charts on desk" loading="lazy" />
+    </div>
+    <div class="split-body bg-grey">
+      <p class="section-label">Tax Preparation</p>
+      <h2>Filing Stress?<br/>Let Us Handle It.</h2>
+      <p>Personal returns, business returns, self-employed income — we handle it all. Low income efiling from $25. No hidden fees, no surprises.</p>
+      <p>CRA correspondence managed on your behalf, so you don't have to deal with the back-and-forth.</p>
+      <a href="#contact" class="btn btn-primary">Book a Consultation</a>
+    </div>
+  </div>
 
 
   <!-- ═══════════════════════════════════════
