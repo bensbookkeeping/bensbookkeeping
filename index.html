@@ -2681,6 +2681,9 @@
 
         <!-- Form -->
         <form class="contact-form reveal" id="contactForm" novalidate>
+          <input type="hidden" name="access_key" value="ab2d1999-ccbb-4f0b-a0d3-f8d199d50b21" />
+          <input type="hidden" name="subject" value="New enquiry from Ben's Bookkeeping website" />
+          <input type="hidden" name="from_name" value="Ben's Bookkeeping Website" />
           <div class="form-row">
             <div class="form-field">
               <label for="fname">First Name</label>
@@ -2915,13 +2918,22 @@
       btn.textContent = 'Sending…';
       btn.disabled = true;
 
-      // Simulate async send — remove this timeout in production
-      setTimeout(() => {
-        contactForm.reset();
-        formSuccess.style.display = 'block';
-        btn.textContent = 'Send Message';
-        btn.disabled = false;
-      }, 1200);
+      const data = new FormData(contactForm);
+      fetch('https://api.web3forms.com/submit', { method: 'POST', body: data })
+        .then(res => res.json())
+        .then(json => {
+          if (json.success) {
+            contactForm.reset();
+            formSuccess.style.display = 'block';
+          } else {
+            alert('Something went wrong. Please try again or call us directly.');
+          }
+        })
+        .catch(() => alert('Something went wrong. Please try again or call us directly.'))
+        .finally(() => {
+          btn.textContent = 'Send Message';
+          btn.disabled = false;
+        });
     });
 
     // ── FAQ accordion ──────────────────────────
